@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="header-one">
+    <img routerLink="/home" src="../../../assets/images/roadSter-logo.png" alt="" />
+  </div>
+  <div class="title">
+    <p>ROADSTER</p>
+  </div>
+  <div class="header-two">
+    <!-- <p>Login / Sign up</p> -->
+    <p *ngIf="getLogged() === false" (click)="openform()">Login</p>
+
+    <img *ngIf="getLogged()" src="../../../assets/pngs/profile.png" alt="profile" (click)="openProfile()"/>
+    
+    <img routerLink="/cart" src="../../../assets/pngs/shopping_bag.png" alt="bag" />
+  </div>
+</div>

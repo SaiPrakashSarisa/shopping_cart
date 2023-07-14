@@ -1,0 +1,89 @@
+<div class="cart-container">
+  <div
+    class="cart-inner-container"
+    *ngIf="products.length != 0; else elseBlock"
+  >
+    <div class="item-container">
+      <div class="component-title">
+        <p>Cart Items</p>
+      </div>
+      <div class="hr">
+        <hr />
+      </div>
+      <div [formGroup]="form">
+        <div *ngFor="let product of products; let i = index">
+          <div class="item">
+            <div class="select">
+              <input
+                type="checkbox"
+                [formControlName]="product.product_id"
+                (change)="submitForm()"
+              />
+            </div>
+            <div class="image">
+              <img [src]="product.product_images[0].image_file" alt="" />
+            </div>
+            <div class="content">
+              <p class="name">{{ product.product_name }}</p>
+              <p>by Roadster</p>
+              <p>sold by VTC TRADEWINGS PVT LTD</p>
+              <p>Amazon Delivered</p>
+              <p>Gift options are not available.</p>
+              <p>
+                <span>Qty : {{ product.cart_item_quantity }}</span
+                ><span>|</span
+                ><span
+                  class="delete"
+                  (click)="
+                    delete(
+                      product.product_id,
+                      product.cart_item_id,
+                      product.cart_item_quantity
+                    )
+                  "
+                  >Delete</span
+                >
+              </p>
+            </div>
+            <div class="price">
+              <p class="actual-price">{{ product.product_price }}</p>
+              <p class="discount-price">
+                {{
+                  product.product_price -
+                    product.product_price * (product.product_discount / 100)
+                    | number : "1.2-2"
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr">
+        <hr />
+      </div>
+
+      <div class="sub-total">
+        <p>Sub total Price</p>
+        <p>{{ totalPrice | number : "1.2-2" }} /-</p>
+      </div>
+    </div>
+
+    <div class="subtotal-container">
+      <p>
+        Total Price (items {{ itemsSelected }}) : ₹{{
+          subTotal | number : "1.2-2"
+        }}
+      </p>
+      <button type="button" (click) = 'purchase()' [disabled]="purchaseDisabled">
+        Proceed to Buy
+      </button>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="empty">
+      <img src="../../../assets/images/empty-cart.png" alt="" />
+      <p class="empty-message">No cart items found</p>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,45 @@
+<div class="form-outer">
+    <div class="form-inner">
+        <div class="form-head">
+            <p class="head">
+                New Address
+            </p>
+        </div>
+        
+        <div class="form-body">
+            <form [formGroup]="addressForm" (ngSubmit)="submit()" >
+                
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="houseNumber">House No</label> -->
+                    <input type="text" class="form-control" formControlName="name" placeholder="enter full name">,
+                    <input type="text" class="form-control" formControlName="contact" placeholder="enter phone number">,
+                    <input type="text" class="form-control" formControlName="houseNumber" placeholder="door.no / house.no">,
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="street">Street</label> -->
+                    <input type="text" class="form-control" formControlName="street" placeholder="enter street">,
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="city">City</label> -->
+                    <input type="text" class="form-control" formControlName="city" placeholder="enter city">,
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="state">State</label> -->
+                    <input type="text" class="form-control" formControlName="state" placeholder="enter state">,
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="country">Country</label> -->
+                    <input type="text" class="form-control" formControlName="country" placeholder="enter country">,
+                <!-- </div> -->
+                <!-- <div class="form-group"> -->
+                    <!-- <label for="postalcode">Pin Code</label> -->
+                    <input type="text" class="form-control" formControlName="postalcode" placeholder="enter pincode"> ,
+                <!-- </div> -->
+                <div  class="form-group">
+                    <input type="submit" value="ADD" class="btn">
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

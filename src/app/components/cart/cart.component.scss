@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cart-container {
+  height: 84vh;
+  // height : 100%;
+  background-color: rgb(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  .cart-inner-container {
+    height: 100%; 
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+
+    .item-container {
+      width: 50%;
+      height: max-content;
+      background-color: white;
+      padding: 10px;
+      margin : 20px 20px;
+
+      .component-title {
+        p {
+          font-size: 2rem;
+          font-family: "Ubuntu", sans-serif;
+        }
+
+        div {
+          float: right;
+        }
+      }
+
+      .item {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        margin: 5px 5px;
+
+        .select {
+          height: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 10%;
+        }
+
+        .image {
+          width: 35%;
+          height: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 70px;
+          }
+        }
+
+        .content {
+          width: 35%;
+
+          .name {
+            font-size: 1.4rem;
+            font-family: "Ubuntu", sans-serif;
+          }
+          p{
+            font-family: 'Maven Pro', sans-serif;
+    
+          }
+          span{
+            margin : 5px 5px;
+          }
+          .delete{
+            color : rgb(3, 78, 218);
+            font-family: 'Maven Pro', sans-serif;
+            cursor: pointer;
+          }
+          .delete:hover{
+            color: red;
+            text-shadow: 0px 0px 2px rgb(134, 57, 57);
+          }
+        }
+
+        .price{
+            height : auto;
+            width : 20%;
+            display : flex;
+            flex-direction: column;
+            justify-content: right;
+            align-items: center;
+
+            .actual-price{
+              text-decoration: line-through;
+              color: grey;
+              font-size : .9rem;
+            };
+
+            .discount-price{
+              color: green;
+              font-weight: bold;
+            }
+        }
+      }
+
+      .sub-total{
+        height : auto;
+        display : flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding : 10px 10px;
+        p{
+          font-size : 1.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .subtotal-container {
+      height : max-content;
+      display:flex;
+      flex-direction: column;
+      margin: 20px 20px;
+      background-color: white;
+
+      p{
+        margin : 0px 10px;
+        margin-top : 10px;
+      }
+
+      button{
+        background-color: #e2d2d2;
+        width : 250px;
+        height: 40px;
+        margin : 10px 10px;
+        cursor : pointer;
+        border-color: transparent;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+
+  .empty {
+    height: 100%;
+    width :100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    img {
+      width: 400px;
+    }
+  
+    .empty-message {
+      font-size: 2rem;
+      font-family: 'Chela One', cursive;
+      padding: 10px 0px;
+      color: #008c77;
+    }
+  }
+}

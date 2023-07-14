@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .floating {
+    position: absolute;
+  }
+  
+
+  .innerbody {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .sidebar {
+      height: 100%;
+      width: 12vw;
+      // border: 2px solid black;
+    }
+
+    .content {
+      height: 100%;
+      width: 88vw;
+      overflow-y: auto;
+      // border: 2px solid green; 
+      background-color: #f3f3f6;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap:1rem;
+    }
+  }
+}

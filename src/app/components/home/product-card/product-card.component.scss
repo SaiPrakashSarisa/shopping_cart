@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  height: 300px;
+  width: 250px;
+  background-color: white;
+  border-radius : 3%;
+  box-shadow: 0px 0px 10px black;
+  margin : 2rem 2rem;
+  .img {
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .content {
+    margin: 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    .text {
+      width: 90%;
+      .brand {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .itemName {
+        font-size: 0.8rem;
+        color: grey;
+        margin: 5px 0px;
+      }
+
+      .actualPrice {
+        font-size: 0.9rem;
+        color: grey;
+        text-decoration: line-through;
+      }
+
+      .availablePrice {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 0px 5px;
+      }
+
+      .discount {
+        font-size: 0.9rem;
+        color: red;
+      }
+    }
+    .like{
+        p{
+            cursor: pointer;
+        }
+    }
+  }
+}

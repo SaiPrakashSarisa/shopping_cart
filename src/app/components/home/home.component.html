@@ -1,0 +1,14 @@
+<div class="body">
+    <div class="innerbody">
+        <div class="sidebar">
+            side bar goes here
+        </div>
+        <div class="content">
+            <div class="card" *ngFor="let product of products">
+                <div class="product" [routerLink]="['/product', product.product_id]">
+                    <app-product-card [products]="product"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

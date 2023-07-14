@@ -1,0 +1,61 @@
+<div class="body">
+    <div class="message float" *ngIf="addedToCart">
+        <p>Added to Cart</p>
+    </div>
+    <div class="innerbody">
+        <div class="content">
+            <div class="sideImages">
+                <div class="img" *ngFor="let prod of product_data">
+                    <img [src]="prod.image" alt="" width="60px">
+                </div>
+            </div>
+            <div class="selectedImage">
+                <img [src]="product_data[0].image" alt="">
+            </div>
+            <div class="details">
+                <p class="name">{{product_data[0].product_name}}</p>
+
+                <p class="price"> 
+                    <span class="discount">-{{product_data[0].product_discount}} %</span>
+                    <sup>₹</sup> <span>{{(product_data[0].product_price)-((product_data[0].product_price)*(product_data[0].product_discount/100)) |number: '1.2-2'}}</span>
+                </p>
+
+                <p class="mrp">M.R.P. : <span class="striked">{{product_data[0].product_price}}</span></p>
+                <p>Inclusive of all taxes</p>
+
+                <hr>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Brand</td> <td>Roadster</td>
+                        </tr>
+                        <tr>
+                            <td>Color</td> <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="purchase">
+                <div>
+                    <p class="purchase-price">
+                        <sup>₹</sup>
+                        <span>{{(product_data[0].product_price)-((product_data[0].product_price)*(product_data[0].product_discount/100))
+                            |number: '1.2-2'}}</span>
+                    </p>
+                    <p>FREE delivery <span class="date">Monday, 17 July.</span></p>
+                    <p>Order within 18hrs. Details</p>
+
+                    <p *ngIf="product_data[0].product_quantity != 0; else elseBlock " class="stockIN">InStock</p>
+                    <ng-template #elseBlock>
+                        <p class="stockOUT">Out Of Stock</p>
+                    </ng-template>
+
+                    <button class="btn cart"type="button" (click)="addToCart(product_data[0].product_id)">Add to Cart</button>
+                    <button class="btn buy" type="button" (click)="addAndRedirectToCart(product_data[0].product_id)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

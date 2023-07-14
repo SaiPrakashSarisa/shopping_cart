@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="img">
+        <img [src]="products.image" alt="" width="200">
+    </div>
+    <div class="content">
+        <div class="text">
+            <p class="brand">Roadster</p>
+            <p class="itemName">{{products.product_name}}</p>
+            <span class="actualPrice">₹{{products.product_price}}</span> <span class="availablePrice">₹{{(products.product_price)-((products.product_price)*(products.product_discount/100)) | number: '1.2-2'}}</span> <span class="discount">{{products.product_discount}}% OFF!</span>
+        </div>
+       <div class="like">
+        <p>🤍</p>
+       </div>
+    </div>
+</div>

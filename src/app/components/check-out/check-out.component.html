@@ -1,0 +1,69 @@
+<div class="check-outer">
+    <div *ngIf="orderSucess" class="sucess float">
+        <div class="float-inner">
+            <img src="../../../assets/images/sucess-order.png" alt="">
+            <p>Order Placed</p>
+            <p>Sucessfully</p>
+        </div>
+        
+    </div>
+    <div class="check-container">
+        <div class="head">
+            Checkout
+        </div>
+        <hr>  
+        <div class="inner-body">
+            <div class="address-inner-body">
+                <div class="selectAddress">
+                    <p>Select your address</p>
+                    <div class="addresses">
+                        <p>Your Adresses</p>
+                        <!-- <hr> -->
+                        <div class="addr" *ngFor="let address of addresses">
+                            <div class="radio">
+                                <input type="radio" name="address">
+                            </div>
+                            <div class="addres">
+                                dr.no : {{address.house_number}}, {{address.street}}, {{address.city}}, {{address.state}},
+                                {{address.country}},
+                                {{address.postal_code}}
+                            </div>
+                            <div class="actions">
+                                <span>Edit</span>
+                                |
+                                <span (click)="deleteAddress(address.address_Id)">Delete</span>
+                            </div>
+                            <!-- {{addresses | json}} -->
+                        </div>
+                        <button class="btn" (click)="addressForm()">+ Add a new address</button>
+                    </div>
+                </div>
+                <div class="address-form" *ngIf="form">
+                    <app-address-form (formSubmitted)="closeForm()"></app-address-form>
+                </div>
+            </div>
+            
+            <div class="summary">
+                <button type="button" class="btn" [disabled]="addresses.length == 0" (click)="buyItem()">Use this address</button>
+                <p> choose your shippin address and conform your order summary</p>
+                <hr>
+                <p class="summary-order">Order Summary</p>
+                <div class="table">
+                    <p> Items </p> <p>{{quantity}}</p>
+                </div>
+                
+                <div class="table">
+                    <p> Delivery  </p> --
+                </div>
+        
+                <hr>
+                <div class="table">
+                    <p  class="order-total"> Order Total :</p> <p class="order-total"> ₹ {{totalPrice | number : '1.2-2'}} </p>
+                </div>
+               
+                <hr>
+            </div>
+        </div>
+          
+    </div>
+</div>

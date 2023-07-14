@@ -1,0 +1,186 @@
+*{
+    margin : 0px;
+    padding : 0px;
+    box-sizing: border-box;
+}
+
+.check-outer{
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .float{
+        position : absolute;
+        height : 84vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        width : 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .float-inner{
+            text-align: center;
+            background-color: white;
+            color : #00d473;
+            border-radius : 1.5rem;
+            overflow: hidden;
+            font-size: 2rem;
+            font-family: 'Chela One', cursive;
+            padding: 1.5rem 5rem;
+        }
+    }
+    .check-container{
+        height : 90%;
+        width : 90%;
+        background-color:white;
+        padding : 10px 10px;
+
+        .head{
+            height : auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding : 5px;
+            font-size : 2rem;
+        }
+        .inner-body{
+            height : 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .address-inner-body{
+                width: 50%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                .address-form {
+                   border: 1px solid black;
+                    height : auto;
+                    display : flex;
+                    justify-content: center;
+                    align-items: center;
+                   border-radius : .8rem;
+                   margin : 0px 10px;
+                }
+
+                .selectAddress {
+                        border-radius: .5rem;
+                        margin: 10px 0px;
+                        padding: 10px 10px;
+                
+                        p {
+                            font-size: 1.4rem;
+                        }
+                
+                        .addresses {
+                            border: 1px solid black;
+                            border-radius: .8rem;
+                            margin: 10px 0px;
+                            padding: 10px 10px;
+                
+                            p {
+                                font-size: 1.2rem;
+                                color: #6b2c21;
+                                padding : 2px 5px;
+                                background-color: #e2d2d2;
+                                border-radius: 5px 5px 0px 0px;
+                            }
+                
+                            .addr {
+                                height: auto;
+                                display: flex;
+                                flex-direction: row;
+                                margin: 0px 5px;
+                                margin-top : 15px;
+                                border: .5px solid black;
+                                border-radius: .8rem;
+                                // background-color: rgb(0, 0, 0, 0.3);
+                
+                                div {
+                                    margin: 10px 0px;
+                                }
+                
+                                .radio {
+                                    width: 5%;
+                                    padding: 0px 8px;
+                                }
+                
+                                .addres {
+                                    width: 75%;
+                                }
+                
+                                .actions {
+                                    width: 20%;
+                                    float: right;
+                                    text-align: right;
+                                    padding: 0px 10px;
+                                }
+                
+                
+                            }
+                
+                            span {
+                                color: rgb(14, 105, 209);
+                                cursor: pointer;
+                            }
+                
+                            .btn {
+                                margin: 8px 5px;
+                                background-color: #2b0303;
+                                color: white;
+                                padding: 10px 10px;
+                                border-radius: .2rem;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+            }
+           
+
+            .summary{
+                width : 25%;
+                border : .5px solid black;
+                border-radius : .8rem;
+                margin : 20px 20px;
+                padding : 10px 10px;
+                height : max-content;
+                display: flex;
+                flex-direction: column;
+
+                .summary-order{
+                    font-weight: bold;
+                    font-size : 1.2rem;
+                }
+                .table{
+                    height : auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    p{
+                        margin: 10px 0px;
+                        .order-total {
+                            color: red;
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+                .btn{
+                    padding : 10px 0px;
+                    border-radius: .8rem;
+                    background-color: #e2d2d2;
+                    border: none;
+                    cursor : pointer;
+                }
+                button:disabled{
+                    cursor :not-allowed;
+                }
+                
+
+                
+            }
+        }
+    }
+}

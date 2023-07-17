@@ -67,6 +67,14 @@ export class AuthServiceService {
     return this.http.post('http://172.17.12.160:1999/addaddress', address);
   }
 
+  getCustomerData(){
+    return this.http.get('http://172.17.12.160:1999/customer');
+  }
+
+  updateCustomer(customer : any){
+    return this.http.post('http://172.17.12.160:1999/updateCustomer', {customer})
+  }
+
   getAddresses() {
     return this.http.get('http://172.17.12.160:1999/addresses');
   }

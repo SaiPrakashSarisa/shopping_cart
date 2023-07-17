@@ -25,7 +25,7 @@ export class AppComponent {
         const queryParams = this._route.snapshot.queryParams;
         this.showNavbar = !['/cart', '/checkout', 'product/'].includes(url);
       }
-    })
+    });
   }
 
   getLogged():boolean {

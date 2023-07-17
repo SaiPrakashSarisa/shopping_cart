@@ -8,11 +8,16 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CartComponent } from './components/cart/cart.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { checkoutGuard } from './components/guard/checkout.guard';
+import { ProfiledataComponent } from './components/profiledata/profiledata.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo : '/home', pathMatch: 'full'},
   { path: 'home', component : HomeComponent},
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profile', component: ProfileComponent, children :[
+    { path : 'profiledata', component: ProfiledataComponent },
+    { path : 'orders', component : OrdersComponent }
+  ]},
   { path: 'log-reg', component : LogRegComponent},
   { path: 'product/:id', component:ProductDetailsComponent  },
   { path: 'cart', component:CartComponent },

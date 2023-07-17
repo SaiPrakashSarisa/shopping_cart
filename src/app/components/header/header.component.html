@@ -9,7 +9,7 @@
     <!-- <p>Login / Sign up</p> -->
     <p *ngIf="getLogged() === false" (click)="openform()">Login</p>
 
-    <img *ngIf="getLogged()" src="../../../assets/pngs/profile.png" alt="profile" (click)="openProfile()"/>
+    <img *ngIf="getLogged()" routerLink="profile/profiledata" src="../../../assets/pngs/profile.png" alt="profile" (click)="openProfile()"/>
     
     <img routerLink="/cart" src="../../../assets/pngs/shopping_bag.png" alt="bag" />
   </div>

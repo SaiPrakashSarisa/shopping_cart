@@ -19,6 +19,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { AddressFormComponent } from './components/check-out/address-form/address-form.component';
 import { checkoutGuard } from './components/guard/checkout.guard';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ProfiledataComponent } from './components/profiledata/profiledata.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { checkoutGuard } from './components/guard/checkout.guard';
     CartComponent,
     CheckOutComponent,
     AddressFormComponent,
+    OrdersComponent,
+    ProfiledataComponent,
   ],
   imports: [
     BrowserModule,

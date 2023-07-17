@@ -5,8 +5,17 @@
 }
 
 .container {
+  height : 100vh;
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
   .floating {
       position: absolute;
+      height : 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   .header {
     height: 8vh;

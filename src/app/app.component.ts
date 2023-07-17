@@ -23,7 +23,7 @@ export class AppComponent {
       if(event instanceof NavigationEnd){
         const url = event.url;
         const queryParams = this._route.snapshot.queryParams;
-        this.showNavbar = !['/cart', '/checkout', '/product'].includes(url);
+        this.showNavbar = !['/cart', '/checkout', 'product/'].includes(url);
       }
     })
   }

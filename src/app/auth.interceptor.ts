@@ -7,11 +7,15 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ProfileService } from './components/services/profile.service';
+import { AuthServiceService } from './components/services/auth-service.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private _profileService: ProfileService) {}
+  constructor(
+    private _profileService: ProfileService,
+    private _authService : AuthServiceService
+    ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -26,10 +30,14 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(copyToken).pipe(
         catchError(error => {
           if(error.status === 401 || error.status === 500){
-            console.log('got an error', error);
-            localStorage.removeItem('accessToke');
-            localStorage.removeItem('refreshToken');
-            this._profileService.setLogged(false);
+            console.log('got an error', error.status);
+            this._authService.refreshToken().subscribe(resp => {
+              console.log("Response form refresh token ", resp);
+            }, error => {
+              console.log("Refresh token error ", error);
+            });
+            // localStorage.removeItem('accessToke');
+            // localStorage.removeItem('refreshToken');
           }
           return throwError(error);
         })

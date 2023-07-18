@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if(request.url.includes('/profile') || request.url.includes('/addToCart') || request.url.includes('/customer')
     ||request.url.includes('/updateCustomer') || request.url.includes('/getCartItems')  
     || request.url.includes('/addaddress') || request.url.includes('/addresses') || request.url.includes('/deleteaddress')
-    || request.url.includes('/placeorder') && jwtToken){
+    || request .url.includes('/updateAddress')|| request.url.includes('/placeorder') && jwtToken){
       const copyToken = request.clone({
         headers : request.headers.set('Authorization', 'Bearer '+jwtToken)
       });

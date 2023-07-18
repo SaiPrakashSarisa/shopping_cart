@@ -83,6 +83,10 @@ export class AuthServiceService {
     return this.http.post('http://172.17.12.160:1999/deleteaddress', {address_id})
   }
 
+  updateAddresss(address : any){
+    return this.http.post('http://172.17.12.160:1999/updateAddress', {address})
+  }
+
   order(products : any){
     return this.http.post('http://172.17.12.160:1999/placeorder', {products});
   }

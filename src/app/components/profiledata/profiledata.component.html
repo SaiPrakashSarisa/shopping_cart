@@ -16,6 +16,33 @@
         <button type="submit">Save</button>
         </form>
     </div>
-    
 
+</div>
+
+
+<div class="user-addresses">
+    <div *ngFor="let address of addresses; let i= index">
+        <div *ngIf="!editaddress[i]">
+            <p><strong>house No : </strong>{{address.house_number}}</p>
+            <p><strong>Street :</strong> {{address.street}}</p>
+            <p><strong>City : </strong>{{address.city}}</p>
+            <p><strong>State : </strong>{{address.state}}</p>
+            <p><strong>Country : </strong>{{address.country}}</p>
+            <p><strong>Postal_code : </strong>{{address.postal_code}}</p>
+            <button (click)="editAddress(i)">edit</button>
+            <button (click)="deleteAddress(address.address_Id)">Delete</button>
+        </div>
+
+        <div *ngIf="editaddress[i]">
+            <form [formGroup]="addressForm" (ngSubmit)="saveAddress(i, address.address_Id)">
+                <p><strong>house No : </strong><input type="text" [(ngModel)]="address.house_number" formControlName="house_number"></p>
+                <p><strong>Street : </strong><input type="text" [(ngModel)]="address.street" formControlName="street"></p>
+                <p><strong>City : </strong><input type="text" [(ngModel)]="address.city" formControlName="city"></p>
+                <p><strong>State : </strong><input type="text" [(ngModel)]="address.state" formControlName="state"></p>
+                <p><strong>Country : </strong><input type="text" [(ngModel)]="address.country" formControlName="country"></p>
+                <p><strong>posta;-code : </strong><input type="text" [(ngModel)]="address.postal_code" formControlName="postal_code"></p>
+                <button type="submit">save</button>
+            </form>
+        </div>
+    </div>
 </div>

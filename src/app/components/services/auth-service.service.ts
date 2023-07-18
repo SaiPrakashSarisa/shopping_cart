@@ -72,7 +72,7 @@ export class AuthServiceService {
   }
 
   updateCustomer(customer : any){
-    return this.http.post('http://172.17.12.160:1999/updateCustomer', {customer})
+    return this.http.post('http://172.17.12.160:1999/updateCustomer', {customer});
   }
 
   getAddresses() {

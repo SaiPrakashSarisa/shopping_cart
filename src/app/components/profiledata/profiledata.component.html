@@ -1,18 +1,18 @@
 
 
-<div class="user-data" *ngFor="let user of userData; let i=index" >
+<div class="user-data" >
     <div *ngIf="!editUser">
-        <p><strong>Name : </strong> {{user.custName}}</p>
-        <p><strong>phone : </strong>{{user.phone}}</p>
-        <p><strong>email : </strong>{{user.email}}</p>
+        <p><strong>Name : </strong> {{userData.custName}}</p>
+        <p><strong>phone : </strong>{{userData.phone}}</p>
+        <p><strong>email : </strong>{{userData.email}}</p>
         <button (click)="edit()">Edit</button>
     </div>
     
     <div *ngIf="editUser">
         <form [formGroup]="userForm" (ngSubmit)="save()">
-        <p><strong>Name : </strong> <input type="text" [(ngModel)]="user.custName" formControlName="custName"></p>
-        <p><strong>phone : </strong><input type="text" [(ngModel)]="user.phone" formControlName="phone"></p>
-        <p><strong>email : </strong><input type="text" [(ngModel)]="user.email" formControlName="email"></p>
+        <p><strong>Name : </strong> <input type="text" [(ngModel)]="userData.custName" formControlName="custName"></p>
+        <p><strong>phone : </strong><input type="text" [(ngModel)]="userData.phone" formControlName="phone"></p>
+        <p><strong>email : </strong><input type="text" [(ngModel)]="userData.email" formControlName="email"></p>
         <button type="submit">Save</button>
         </form>
     </div>

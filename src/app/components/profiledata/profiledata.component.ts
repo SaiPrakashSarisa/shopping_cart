@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ProfiledataComponent {
 
-  userData : any[]= [] ;
+  userData  :any = [] ;
   addresses : []= [];
   
   editUser : boolean = false;
@@ -20,7 +20,7 @@ export class ProfiledataComponent {
 
     console.log('insde profile data ')
     this._authService.getCustomerData().subscribe((res)=> {
-      this.userData.push(res);
+      this.userData = (<any>res);
       console.log('user data ', this.userData);
     })
     this._authService.getAddresses().subscribe((res)=> {
@@ -51,7 +51,9 @@ export class ProfiledataComponent {
           phone : this.userForm.get('phone')!.value
         }
 
-        this._authService.updateCustomer(customer);
+        this._authService.updateCustomer(customer).subscribe((res) => {
+          console.log(res);
+        })
       }else{
         console.log('form is invalid');
       }

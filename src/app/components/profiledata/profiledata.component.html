@@ -1,48 +1,139 @@
-
-
-<div class="user-data" >
-    <div *ngIf="!editUser">
-        <p><strong>Name : </strong> {{userData.custName}}</p>
-        <p><strong>phone : </strong>{{userData.phone}}</p>
-        <p><strong>email : </strong>{{userData.email}}</p>
-        <button (click)="edit()">Edit</button>
-    </div>
-    
-    <div *ngIf="editUser">
-        <form [formGroup]="userForm" (ngSubmit)="save()">
-        <p><strong>Name : </strong> <input type="text" [(ngModel)]="userData.custName" formControlName="custName"></p>
-        <p><strong>phone : </strong><input type="text" [(ngModel)]="userData.phone" formControlName="phone"></p>
-        <p><strong>email : </strong><input type="text" [(ngModel)]="userData.email" formControlName="email"></p>
-        <button type="submit">Save</button>
-        </form>
+<div class="container">
+    <div class="username">
+        <p>Hello, <span class="user">{{userData.custName}}</span></p>
     </div>
 
-</div>
-
-
-<div class="user-addresses">
-    <div *ngFor="let address of addresses; let i= index">
-        <div *ngIf="!editaddress[i]">
-            <p><strong>house No : </strong>{{address.house_number}}</p>
-            <p><strong>Street :</strong> {{address.street}}</p>
-            <p><strong>City : </strong>{{address.city}}</p>
-            <p><strong>State : </strong>{{address.state}}</p>
-            <p><strong>Country : </strong>{{address.country}}</p>
-            <p><strong>Postal_code : </strong>{{address.postal_code}}</p>
-            <button (click)="editAddress(i)">edit</button>
-            <button (click)="deleteAddress(address.address_Id)">Delete</button>
+    <div class="user-data">
+        
+        <div class="UserData" *ngIf="!editUser">
+            <div class="head">
+                <p>User Info</p>
+                <button (click)="edit()">Edit</button>
+            </div>
+            <div class="content">
+                <fieldset>
+                    <legend>Name</legend>
+                    <p>{{userData.custName}}</p>
+                </fieldset>
+                <fieldset>
+                    <legend>Phone Number</legend>
+                    <p>{{userData.phone}}</p>
+                </fieldset>
+                <fieldset>
+                    <legend>Email-Id</legend>
+                    <p>{{userData.email}}</p>
+                </fieldset>
+            </div>
+            
         </div>
-
-        <div *ngIf="editaddress[i]">
-            <form [formGroup]="addressForm" (ngSubmit)="saveAddress(i, address.address_Id)">
-                <p><strong>house No : </strong><input type="text" [(ngModel)]="address.house_number" formControlName="house_number"></p>
-                <p><strong>Street : </strong><input type="text" [(ngModel)]="address.street" formControlName="street"></p>
-                <p><strong>City : </strong><input type="text" [(ngModel)]="address.city" formControlName="city"></p>
-                <p><strong>State : </strong><input type="text" [(ngModel)]="address.state" formControlName="state"></p>
-                <p><strong>Country : </strong><input type="text" [(ngModel)]="address.country" formControlName="country"></p>
-                <p><strong>posta;-code : </strong><input type="text" [(ngModel)]="address.postal_code" formControlName="postal_code"></p>
-                <button type="submit">save</button>
+    
+        <div class="UserData" *ngIf="editUser">
+            <form [formGroup]="userForm" (ngSubmit)="save()">
+                <div class="head">
+                    <p>User Info</p>
+                    <button type="submit">Save</button>
+                </div>
+                <div class="content">
+                    <fieldset>
+                        <legend>Name</legend>
+                        <p><input type="text" [(ngModel)]="userData.custName" formControlName="custName"></p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Phone Number</legend>
+                        <p><input type="text" [(ngModel)]="userData.phone" formControlName="phone"></p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Email-Id</legend>
+                        <p><input type="text" [(ngModel)]="userData.email" formControlName="email"></p>
+                    </fieldset>
+                </div>
             </form>
         </div>
+    
     </div>
+
+    <div class="user-addresses">
+        <div *ngFor="let address of addresses; let i= index">
+            <div class="manage-adress">
+                <p>Manage Addresses</p>
+            </div>
+            <div class="UserAddress" *ngIf="!editaddress[i]">
+                <div class="head">
+                    <p>Address-{{i+1}}</p>
+                    <div class="buttons">
+                        <button (click)="editAddress(i)">edit</button>
+                        <button (click)="deleteAddress(address.address_Id)">Delete</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <fieldset>
+                        <legend>House No</legend>
+                        <p>{{address.house_number}}</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Street</legend>
+                        <p>{{address.street}}</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>City</legend>
+                        <p>{{address.city}}</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>State</legend>
+                        <p>{{address.state}}</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Country</legend>
+                        <p>{{address.country}}</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Postal_code</legend>
+                        <p>{{address.postal_code}}</p>
+                    </fieldset>
+                </div>
+            </div>
+    
+            <div class="UserAddress" *ngIf="editaddress[i]">
+                <form [formGroup]="addressForm" (ngSubmit)="saveAddress(i, address.address_Id)">
+                    <div class="head">
+                        <p>Address-{{i+1}}</p>
+                        <div class="buttons">
+                            <button type="submit">save</button>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <fieldset>
+                            <legend>House No</legend>
+                            <p><input type="text" [(ngModel)]="address.house_number" formControlName="house_number"></p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Street</legend>
+                            <p><input type="text" [(ngModel)]="address.street" formControlName="street"></p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>City</legend>
+                            <p><input type="text" [(ngModel)]="address.city" formControlName="city"></p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>State</legend>
+                            <p><input type="text" [(ngModel)]="address.state" formControlName="state"></p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Country</legend>
+                            <p><input type="text" [(ngModel)]="address.country" formControlName="country"></p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Postal_code</legend>
+                            <p><input type="text" [(ngModel)]="address.postal_code" formControlName="postal_code"></p>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+
+
+

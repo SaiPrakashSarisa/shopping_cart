@@ -111,11 +111,6 @@ export class ProfiledataComponent {
         this.ngOnInit();
         this._cd.detectChanges();
       })
-
-      
     }
-    
   }
-
-  
 }

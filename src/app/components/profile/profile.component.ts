@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,11 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileComponent {
 
+  user : any = [];
+
   constructor(
     private _router : Router,
     private _activatedRuote : ActivatedRoute,
-    private _cd : ChangeDetectorRef
   ) {}
+
+  ngOnIntit(){
+   
+  }
 
   profile(){
     this._router.navigate(['profiledata'], {relativeTo : this._activatedRuote});
@@ -22,9 +28,13 @@ export class ProfileComponent {
     this._router.navigate(['orders'], {relativeTo : this._activatedRuote});
   }
 
+  close(){
+    this._router.navigate(['/home']);
+  }
+
   logout(){
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('accessToke');
-    this._router.navigate(['/home']);
+    this.close();
   }
 }

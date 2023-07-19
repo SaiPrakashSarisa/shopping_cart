@@ -2,11 +2,11 @@
     <div class="profile">
         <div class="sidebar">
             <div class="options">
-                <span class="username">Hello, User</span>
                 <p routerLink="/profile/profiledata">Profile</p>
                 <p routerLink="/profile/orders">My Orders</p>
             </div>
             <div class="logout">
+                <button type="button" (click)="close()">Close Profile</button>
                 <button type="button" (click)="logout()">Log Out</button>
             </div>
         </div>

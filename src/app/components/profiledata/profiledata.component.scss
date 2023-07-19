@@ -1,0 +1,150 @@
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height : 100%;
+    width : 80%;
+    display: flex;
+    flex-direction: column;
+
+    .username{
+        padding: 20px 20px 0px 20px;
+        p{
+            font-size: 2rem;
+
+            span{
+                color : rgb(77, 19, 11);
+                text-transform: capitalize;
+            }
+        };
+    }
+
+    .user-data{
+        height: max-content;
+        width : 100%;
+        display: flex;
+        padding : 20px 20px;
+        // border: 1px solid black;
+       
+        .UserData{
+            height : max-content;
+            width : 100%;
+            display: flex;
+            flex-direction: column;
+            padding : 10px 10px;
+            border: 1px solid black;
+            border-radius: .8rem;
+            
+            .head {
+                height : auto;
+                display: flex;
+                padding: 10px 10px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border: none;
+                background-color: antiquewhite;
+                border-radius: .8rem .8rem 0rem 0rem;
+                button {
+                    padding: .2rem .5rem;
+                    text-transform: capitalize;
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+                p{
+                    font-weight: bold;
+                }
+            }
+            .content{
+                border : none;
+                display: flex;
+                flex-direction: row;
+                fieldset{
+                    margin: 10px 20px;
+                    border: none;
+                    p{
+                        width: 10rem;
+                        padding: 5px 5px;
+                        input{
+                            border:none;
+                            border-bottom: 1px solid grey;
+                            outline: none;
+                        }
+                    }
+                    legend{
+                        color : grey;
+                    }
+                }
+            }
+        }
+    }
+
+    .user-addresses{
+        padding : 0px 20px;
+        .manage-adress{
+            margin-bottom : 5px;
+            font-size : 1.2rem;
+            font-weight : bold;
+        }
+        .UserAddress {
+                height: max-content;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 10px 10px;
+                border: 1px solid black;
+                border-radius: .8rem;
+        
+                .head {
+                    height: auto;
+                    display: flex;
+                    padding : 10px 10px;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: none;
+                    background-color: antiquewhite;
+                    border-radius: .8rem .8rem 0rem 0rem;
+                    button{
+                        padding: .2rem .5rem;
+                        text-transform: capitalize;
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                    p {
+                        font-weight: bold;
+                    }
+                }
+        
+                .content {
+                    border: none;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+        
+                    fieldset {
+                        margin-right: 20px;
+                        border: none;
+                        margin: 10px 20px;
+                        p {
+                            width: 10rem;
+                            padding: 5px 5px;
+        
+                            input {
+                                border: none;
+                                border-bottom: 1px solid grey;
+                                outline: none;
+                            }
+                        }
+        
+                        legend {
+                            color: grey;
+                        }
+                    }
+                }
+            }
+    }
+}

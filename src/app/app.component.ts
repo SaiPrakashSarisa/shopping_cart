@@ -7,26 +7,31 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
+
   title = 'RoadSterShoppingCart';
 
   profileOpened?: boolean;
   formOpened?: boolean;
   showNavbar : boolean = true;
+  
 
   constructor(
     private _profileService: ProfileService,
     private _router : Router,
     private _route : ActivatedRoute,
+    
   ){
     this._router.events.subscribe( event => {
       if(event instanceof NavigationEnd){
         const url = event.url;
         const queryParams = this._route.snapshot.queryParams;
-        this.showNavbar = !['/cart', '/checkout', '/product', '/profile/profiledata', '/profile/orders'].includes(url);
+        this.showNavbar = !['/cart', '/checkout', '/product', '/profile/profiledata', '/profile/orders'].some(route => url.startsWith(route));
       }
     });
   }
+
+  
 
   getLogged():boolean {
     return this._profileService.getLogged();

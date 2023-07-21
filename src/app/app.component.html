@@ -8,7 +8,7 @@
     <div *ngIf="showNavbar"class="row2 navbar">
         <app-navbar></app-navbar>
     </div>
-    <div class="row3">
+    <div [ngStyle]="{'height': showNavbar ? '84vh' : '92vh'}" class="row3">
         <router-outlet></router-outlet>
     </div>
 </div>

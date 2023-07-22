@@ -1,42 +1,78 @@
-<div class="outer-container" >
-    <div class="inner-container">
-        <div class="brandPoster">
-            <img src="../../../../assets/images/RoadSterBrand.jpg" alt="">
-        </div>
-        <div class="form">
-            <span class="close"(click)="close()">❌</span>
-            <form [formGroup]="form" (ngSubmit)="submit()">
-                <h1 *ngIf="login"> LOGIN </h1>
-                <h1 *ngIf="signup"> Sign Up</h1>
-
-                <div *ngIf="signup" class="formgroup">
-                    <label for="username">User Name</label>
-                    <input type="text" placeholder="enter user name" class="formcontrol" formControlName="userName">
-                </div>
-                <div  *ngIf="signup" class="formgroup">
-                    <label for="eamil">email</label>
-                    <input type="text" placeholder="enter email"class="formcontrol" formControlName="email">
-                </div>
-                <div *ngIf="login" class="formgroup">
-                    <label for="eamil">email or phone</label>
-                    <input type="text" placeholder="enter email" class="formcontrol" formControlName="emailORphone">
-                </div>
-                <div *ngIf="signup" class="formgroup">
-                    <label for="eamil">phone</label>
-                    <input type="text" placeholder="enter phone number" class="formcontrol" formControlName="phone">
-                </div>
-                <div class="formgroup">
-                    <label for="password"> password</label>
-                    <div class="submit">
-                        <input type="password" class="formcontrol pass" formControlName="password">
-                        <button class="button" type="submit"><img src="../../../../assets/pngs/submit.png" alt=""></button>
-                    </div>
-                    
-                </div>
-            </form>
-
-            <span *ngIf="login">New user ? <p (click)="onSignUp()">Sing Up</p></span>
-            <span *ngIf="signup">Already have an account ? <p (click)="onLogClick()">Login</p></span>
-        </div>
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="brandPoster">
+      <img src="../../../../assets/images/RoadSterBrand.jpg" alt="" />
     </div>
+    <div class="form">
+      <span class="close" (click)="close()">❌</span>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <h1 *ngIf="login">LOGIN</h1>
+        <h1 *ngIf="signup">Sign Up</h1>
+
+        <div *ngIf="signup" class="formgroup">
+          <label for="username">User Name</label>
+          <input
+            type="text"
+            placeholder="enter user name"
+            class="formcontrol"
+            formControlName="userName"
+          />
+        </div>
+        <div *ngIf="signup" class="formgroup">
+          <label for="eamil">email</label>
+          <input
+            type="text"
+            placeholder="enter email"
+            class="formcontrol"
+            formControlName="email"
+          />
+        </div>
+        <div *ngIf="login" class="formgroup">
+          <label for="eamil">email or phone</label>
+          <input
+            type="text"
+            placeholder="enter email"
+            class="formcontrol"
+            formControlName="emailORphone"
+          />
+        </div>
+        <div *ngIf="signup" class="formgroup">
+          <label for="eamil">phone</label>
+          <input
+            type="text"
+            placeholder="enter phone number"
+            class="formcontrol"
+            formControlName="phone"
+          />
+        </div>
+        <div class="formgroup">
+          <label for="password"> password</label>
+          <div class="submit">
+            <input
+              type="password"
+              class="formcontrol pass"
+              formControlName="password"
+            />
+            <button class="button" type="submit">
+              <img src="../../../../assets/pngs/submit.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <span *ngIf="login"
+        >New user ?
+        <p (click)="onSignUp()">Sing Up</p></span
+      >
+      <span *ngIf="signup"
+        >Already have an account ?
+        <p (click)="onLogClick()">Login</p></span
+      >
+    </div>
+  </div>
+  <div *ngIf="statusMessage" class="floating">
+    <p *ngIf="statusMessage && sucess" class="sucess">Registered Sucessfully</p>
+    <p *ngIf="statusMessage && failed">Please enter valid details</p>
+    <p *ngIf="statusMessage && duplicate" class="duplicate">{{ message }}</p>
+  </div>
 </div>

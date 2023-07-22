@@ -11,6 +11,11 @@ import { AuthServiceService } from '../../services/auth-service.service';
 export class LogRegComponent {
   login: boolean = true;
   signup: boolean = false;
+  statusMessage: boolean = false;
+  sucess: boolean = false;
+  failed: boolean = false;
+  duplicate: boolean = false;
+  message: string = '';
 
   form!: FormGroup;
 
@@ -91,10 +96,28 @@ export class LogRegComponent {
         this.authService.signUp(user).subscribe(
           (res) => {
             console.log('HTTP request sucessfull', res);
+            this.statusMessage = true;
+            this.sucess = true;
+            // set time out function to remove the message after 1.5 seconds
+            setTimeout(() => {
+              this.sucess = false;
+              this.statusMessage = false;
+            }, 1500);
             this.profileService.setProfileClick(false);
           },
           (error) => {
             console.log('Http response error', error);
+            console.log(error.error.message);
+            // setting error vlaue to the message variable
+            this.message = error.error.message;
+            // setting boolean value to show messge to user
+            this.statusMessage = true;
+            this.duplicate = true;
+            // set time out function to remove the message after 1.5 seconds
+            setTimeout(() => {
+              this.duplicate = false;
+              this.statusMessage = false;
+            }, 1500);
           }
         );
       }

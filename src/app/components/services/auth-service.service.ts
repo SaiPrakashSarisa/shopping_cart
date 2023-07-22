@@ -1,94 +1,97 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { catchError, tap, throwError } from 'rxjs';
 import { ProfileService } from './profile.service';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthServiceService {
-
   constructor(
-    private http :HttpClient,
-    private _profileService : ProfileService,
-    private _router : Router
-  ) { }
+    private http: HttpClient,
+    private _profileService: ProfileService,
+    private _router: Router
+  ) {}
 
-  refreshToken(){
+  refreshToken() {
     const refreshToken = localStorage.getItem('refreshToken');
 
-    return this.http.post('http://172.17.12.160:1999/refresh', {refreshToken})
+    return this.http
+      .post('http://localhost:1999/refresh', { refreshToken })
       .pipe(
-        tap((res)=> {
+        tap((res) => {
           this.setSession(res);
         }),
-        catchError((error : any) => {
-          if(error.status === 401 || error.status === 500){
+        catchError((error: any) => {
+          if (error.status === 401 || error.status === 500) {
             console.log('got an error ', error.status);
             this.logout(); // clearing user session.
             this._router.navigate(['/home']);
           }
           return throwError(error);
         })
-      )
-
+      );
   }
 
-  signUp(user : any){
-    console.log('inside auth service' );
-    return this.http.post('http://172.17.12.160:1999/signUp', user);
-  };
+  signUp(user: any) {
+    console.log('inside auth service');
+    return this.http.post('http://localhost:1999/signUp', user);
+  }
 
-  login(user : any){
+  login(user: any) {
     console.log('inside login of authService');
-    return this.http.post('http://172.17.12.160:1999/login', user)
-    .pipe(
+    return this.http.post('http://localhost:1999/login', user).pipe(
       tap((res) => {
         this.setSession(res);
       })
-    )
-  };
+    );
+  }
 
-  private setSession(response : any){
+  private setSession(response: any) {
     // console.log(response);
     localStorage.setItem('accessToke', response.accessToken);
     localStorage.setItem('refreshToken', response.refreshToken);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('accessToke');
     this._profileService.setLogged(false);
   }
 
-  addAddress(address : any){
+  addAddress(address: any) {
     // console.log('inside add address service');
-    return this.http.post('http://172.17.12.160:1999/addaddress', address);
+    return this.http.post('http://localhost:1999/addaddress', address);
   }
 
-  getCustomerData(){
-    return this.http.get('http://172.17.12.160:1999/customer');
+  getCustomerData() {
+    return this.http.get('http://localhost:1999/customer');
   }
 
-  updateCustomer(customer : any){
-    return this.http.post('http://172.17.12.160:1999/updateCustomer', {customer});
+  updateCustomer(customer: any) {
+    return this.http.post('http://localhost:1999/updateCustomer', {
+      customer,
+    });
   }
 
   getAddresses() {
-    return this.http.get('http://172.17.12.160:1999/addresses');
+    return this.http.get('http://localhost:1999/addresses');
   }
 
-  deleteAddress(address_id : number) {
-    return this.http.post('http://172.17.12.160:1999/deleteaddress', {address_id})
+  deleteAddress(address_id: number) {
+    return this.http.post('http://localhost:1999/deleteaddress', {
+      address_id,
+    });
   }
 
-  updateAddresss(address : any){
-    return this.http.post('http://172.17.12.160:1999/updateAddress', {address})
+  updateAddresss(address: any) {
+    return this.http.post('http://localhost:1999/updateAddress', {
+      address,
+    });
   }
 
-  order(products : any){
-    return this.http.post('http://172.17.12.160:1999/placeorder', {products});
+  order(products: any) {
+    return this.http.post('http://localhost:1999/placeorder', { products });
   }
-
 }

@@ -55,15 +55,16 @@ export class LogRegComponent {
   }
 
   submit() {
-    console.log("button cliked");
+    console.log('Form Submitted');
     if (this.form.valid) {
+      console.log('The Form is valid');
       console.log('Form Values are : ', this.form.value);
 
       if (this.login) {
         const user = {
-          emailORphone : this.form.get('emailORphone')!.value,
-          password : this.form.get('password')!.value
-        }
+          emailORphone: this.form.get('emailORphone')!.value,
+          password: this.form.get('password')!.value,
+        };
         // testing login data
         console.log('login form data : ', user);
 
@@ -72,7 +73,8 @@ export class LogRegComponent {
             console.log('HTTP Request Sucessfull ', res);
             this.profileService.setFormClick(false);
             this.profileService.setLogged(true);
-          },(error) => {
+          },
+          (error) => {
             console.log('HTTP Response Error : ', error);
           }
         );
@@ -80,11 +82,11 @@ export class LogRegComponent {
         const user = {
           userName: this.form.get('userName')!.value,
           email: this.form.get('email')!.value,
-          phone : this.form.get('phone')!.value,
+          phone: this.form.get('phone')!.value,
           password: this.form.get('password')!.value,
         };
         // testing sign up data
-        console.log('SignUP form data', user);
+        console.log('SignUP form data as object', user);
 
         this.authService.signUp(user).subscribe(
           (res) => {
@@ -96,7 +98,7 @@ export class LogRegComponent {
           }
         );
       }
-    }else{
+    } else {
       console.log('invalid form data');
       console.log(this.form.value);
     }

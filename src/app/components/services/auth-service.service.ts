@@ -39,8 +39,13 @@ export class AuthServiceService {
     return this.http.post('http://localhost:1999/signUp', user);
   }
 
+  /**
+   * Sends a POST request to the backend API endpoint to log in the user.
+   * @param user An object containing the user's login credentials.
+   * @returns An Observable that emits the response from the API endpoint.
+   * The session is set on successful login.
+   */
   login(user: any) {
-    console.log('inside login of authService');
     return this.http.post('http://localhost:1999/login', user).pipe(
       tap((res) => {
         this.setSession(res);
@@ -48,8 +53,12 @@ export class AuthServiceService {
     );
   }
 
+  /**
+   *
+   * @param {Object} response This method taken an object as parameter with accessToken and refreshToken as properties.
+   * And it stores the tokens in the browsers local storage.
+   */
   private setSession(response: any) {
-    // console.log(response);
     localStorage.setItem('accessToke', response.accessToken);
     localStorage.setItem('refreshToken', response.refreshToken);
   }

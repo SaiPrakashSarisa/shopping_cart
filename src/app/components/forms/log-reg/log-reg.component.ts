@@ -79,6 +79,11 @@ export class LogRegComponent {
 
         this.authService.login(user).subscribe(
           (res) => {
+            if ((<any>res).retailer) {
+              console.log('logged user is retailer');
+            } else {
+              console.log('logged use is consumer');
+            }
             console.log('HTTP Request Sucessfull ', res);
             this.profileService.setFormClick(false);
             this.profileService.setLogged(true);

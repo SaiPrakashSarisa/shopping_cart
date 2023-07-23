@@ -31,6 +31,7 @@ export class LogRegComponent {
     this.form = new FormGroup({
       emailORphone: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      retailer: new FormControl(false, [Validators.required]),
     });
   }
 
@@ -42,6 +43,7 @@ export class LogRegComponent {
       phone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      retailer: new FormControl(false, [Validators.required]),
     });
   }
 
@@ -51,6 +53,7 @@ export class LogRegComponent {
     this.form = new FormGroup({
       emailORphone: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      retailer: new FormControl(false, [Validators.required]),
     });
   }
 
@@ -69,6 +72,7 @@ export class LogRegComponent {
         const user = {
           emailORphone: this.form.get('emailORphone')!.value,
           password: this.form.get('password')!.value,
+          retailer: this.form.get('retailer')!.value,
         };
         // testing login data
         console.log('login form data : ', user);
@@ -81,6 +85,13 @@ export class LogRegComponent {
           },
           (error) => {
             console.log('HTTP Response Error : ', error);
+            this.message = error.error.message;
+            this.statusMessage = true;
+            this.duplicate = true;
+            setTimeout(() => {
+              this.duplicate = false;
+              this.statusMessage = false;
+            }, 1200);
           }
         );
       } else {
@@ -89,6 +100,7 @@ export class LogRegComponent {
           email: this.form.get('email')!.value,
           phone: this.form.get('phone')!.value,
           password: this.form.get('password')!.value,
+          retailer: this.form.get('retailer')!.value,
         };
         // testing sign up data
         console.log('SignUP form data as object', user);

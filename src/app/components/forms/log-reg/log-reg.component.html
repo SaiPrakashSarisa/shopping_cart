@@ -9,6 +9,14 @@
         <h1 *ngIf="login">LOGIN</h1>
         <h1 *ngIf="signup">Sign Up</h1>
 
+        <div class="formgroup">
+          <p>
+            <input type="checkbox" formControlName="retailer" />
+            <label *ngIf="login" for="retailer">retailer login</label>
+            <label *ngIf="signup" for="retailer">retailer signup</label>
+          </p>
+        </div>
+
         <div *ngIf="signup" class="formgroup">
           <label for="username">User Name</label>
           <input
@@ -18,6 +26,7 @@
             formControlName="userName"
           />
         </div>
+
         <div *ngIf="signup" class="formgroup">
           <label for="eamil">email</label>
           <input
